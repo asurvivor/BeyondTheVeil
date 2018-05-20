@@ -40,7 +40,7 @@ SERVERNAME = "BeyondTheVale"
 
 # Telnet ports. Visible.
 TELNET_ENABLED = True
-TELNET_PORTS = [4000]
+TELNET_PORTS = [4444]
 # (proxy, internal). Only proxy should be visible.
 WEBSERVER_ENABLED = True
 WEBSERVER_PORTS = [(4001, 4002)]
