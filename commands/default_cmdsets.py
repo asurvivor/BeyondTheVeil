@@ -16,6 +16,7 @@ own cmdsets by inheriting from them or directly from `evennia.CmdSet`.
 
 from evennia import default_cmds
 from evennia.contrib import dice
+from evennia.contrib.multidescer import CmdMultiDesc
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
@@ -34,6 +35,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         # any commands you add below will overload the default ones.
         #
         self.add(dice.CmdDice())
+        self.add(CmdMultiDesc())
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
