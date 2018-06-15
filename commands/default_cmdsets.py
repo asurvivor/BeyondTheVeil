@@ -17,7 +17,7 @@ own cmdsets by inheriting from them or directly from `evennia.CmdSet`.
 from evennia import default_cmds
 from evennia.contrib import dice
 from evennia.contrib.multidescer import CmdMultiDesc
-from evennia.contrib import SimpleDoor
+from evennia.contrib import simpledoor
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
