@@ -37,8 +37,8 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         #
         self.add(dice.CmdDice())
         self.add(CmdMultiDesc())
-        self.add(CmdOpen())
-        self.add(CmdOpenCloseDoor())
+        self.add(simpledoor.CmdOpen())
+        self.add(simpledoor.CmdOpenCloseDoor())
 
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
