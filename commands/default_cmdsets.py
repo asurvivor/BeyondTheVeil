@@ -18,6 +18,7 @@ from evennia import default_cmds
 from evennia.contrib import dice
 from evennia.contrib.multidescer import CmdMultiDesc
 from evennia.contrib import simpledoor
+from evennia.contrib.mail import CmdMail
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
     """
@@ -39,7 +40,7 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         self.add(CmdMultiDesc())
         self.add(SimpleDoor.CmdOpen())
         self.add(SimpleDoor.CmdOpenCloseDoor())
-
+        self.add(CmdMail())
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
     """
