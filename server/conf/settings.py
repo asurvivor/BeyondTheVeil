@@ -32,7 +32,7 @@ from evennia.settings_default import *
 ######################################################################
 
 # This is the name of your game. Make it catchy!
-SERVERNAME = "BeyondTheVale"
+SERVERNAME = "BeyondTheVeil"
 
 # Server ports. If enabled and marked as "visible", the port
 # should be visible to the outside world on a production server.
@@ -55,6 +55,8 @@ WEBSOCKET_CLIENT_ENABLED = True
 WEBSOCKET_CLIENT_PORT = 4005
 # Internal Server-Portal port. Not visible.
 AMP_PORT = 4006
+
+MULTISESSION_MODE = 2
 
 ######################################################################
 # Settings given in secret_settings.py override those in this file.
