@@ -56,7 +56,7 @@ WEBSOCKET_CLIENT_PORT = 4005
 # Internal Server-Portal port. Not visible.
 AMP_PORT = 4006
 
-MULTISESSION_MODE = 2
+MULTISESSION_MODE = 3
 
 ######################################################################
 # Settings given in secret_settings.py override those in this file.
