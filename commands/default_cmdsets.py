@@ -17,7 +17,6 @@ own cmdsets by inheriting from them or directly from `evennia.CmdSet`.
 from evennia import default_cmds
 from evennia.contrib import dice
 from evennia.contrib.multidescer import CmdMultiDesc
-from evennia.contrib import simpledoor
 from evennia.contrib.mail import CmdMail
 
 class CharacterCmdSet(default_cmds.CharacterCmdSet):
@@ -38,8 +37,6 @@ class CharacterCmdSet(default_cmds.CharacterCmdSet):
         #
         self.add(dice.CmdDice())
         self.add(CmdMultiDesc())
-        self.add(SimpleDoor.CmdOpen())
-        self.add(SimpleDoor.CmdOpenCloseDoor())
         self.add(CmdMail())
 
 class AccountCmdSet(default_cmds.AccountCmdSet):
