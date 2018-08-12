@@ -20,8 +20,13 @@ from evennia import utils
 
 CONNECTION_SCREEN = """
 |b==============================================================|n
- Welcome to |g{}|n, version {}!
-
+ Welcome to Beyond The Veil, version {}!
+|b**************************************************************|n
+  Here there be gods...
+   |b--------------------------------------------------------------|n
+   And Monsters.
+   
+   
  If you have an existing account, connect to it by typing:
       |wconnect <username> <password>|n
  If you need to create an account, type (without the <>'s):
