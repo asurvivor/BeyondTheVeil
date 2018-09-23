@@ -3,14 +3,14 @@ Account
 
 The Account represents the game "account" and each login has only one
 Account object. An Account is what chats on default channels but has no
-other in-game-world existence. Rather the Account puppets Objects (such
+other in-game-world existance. Rather the Account puppets Objects (such
 as Characters) in order to actually participate in the game world.
 
 
 Guest
 
 Guest accounts are simple low-level accounts that are created/deleted
-on the fly and allows users to test the game without the commitment
+on the fly and allows users to test the game without the committment
 of a full registration. Guest accounts are deactivated by default; to
 activate them, add the following line to your settings file:
 
@@ -66,7 +66,7 @@ class Account(DefaultAccount):
 
      msg(text=None, **kwargs)
      swap_character(new_character, delete_old_character=False)
-     execute_cmd(raw_string, session=None)
+     execute_cmd(raw_string, sessid=None)
      search(ostring, global_search=False, attribute_name=None, use_nicks=False, location=None, ignore_errors=False, account=False)
      is_typeclass(typeclass, exact=False)
      swap_typeclass(new_typeclass, clean_attributes=False, no_default=True)
@@ -84,7 +84,7 @@ class Account(DefaultAccount):
      at_init()
      at_cmdset_get(**kwargs)
      at_first_login()
-     at_post_login(session=None)
+     at_post_login(sessid=None)
      at_disconnect()
      at_message_receive()
      at_message_send()
@@ -92,7 +92,10 @@ class Account(DefaultAccount):
      at_server_shutdown()
 
     """
-    pass
+    def at_look(self, target=None, session=None):
+        """We override this to modify the @charcreate usage message."""
+        output = super(Account, self).at_look(target, session)
+        return output.replace(' [=description]', '')
 
 
 class Guest(DefaultGuest):

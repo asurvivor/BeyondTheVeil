@@ -14,7 +14,6 @@ to be modified.
 
 from evennia import DefaultChannel
 
-
 class Channel(DefaultChannel):
     """
     Working methods:

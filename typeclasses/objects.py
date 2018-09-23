@@ -12,6 +12,7 @@ inheritance.
 """
 from evennia.contrib.rpsystem import ContribRPObject
 
+
 class Object(ContribRPObject):
     """
     This is the root typeclass object, implementing an in-game Evennia
@@ -43,8 +44,7 @@ class Object(ContribRPObject):
      account (Account) - controlling account (if any, only set together with
                        sessid below)
      sessid (int, read-only) - session id (if any, only set together with
-                       account above). Use `sessions` handler to get the
-                       Sessions directly.
+                       account above)
      location (Object) - current location. Is None if this is a room
      home (Object) - safety start-location
      sessions (list of Sessions, read-only) - returns all sessions connected
@@ -67,8 +67,6 @@ class Object(ContribRPObject):
      scripts - script-handler. Add new scripts to object with scripts.add()
      cmdset - cmdset-handler. Use cmdset.add() to add new cmdsets to object
      nicks - nick-handler. New nicks with nicks.add().
-     sessions - sessions-handler. Get Sessions connected to this
-                object with sessions.get()
 
     * Helper methods (see src.objects.objects.py for full headers)
 
@@ -97,7 +95,7 @@ class Object(ContribRPObject):
      at_object_delete() - called just before deleting an object. If returning
                             False, deletion is aborted. Note that all objects
                             inside a deleted object are automatically moved
-                            to their <home>, they don't need to be removed here.
+                            to their <home>, they don't need to be removed here
 
      at_init()            - called whenever typeclass is cached from memory,
                             at least once every server restart/reload
@@ -121,7 +119,7 @@ class Object(ContribRPObject):
                             does not affect check result.
 
      at_before_move(destination)             - called just before moving object
-                        to the destination. If returns False, move is cancelled.
+                        to the destination. If returns False, move is cancelled
      announce_move_from(destination)         - called in old location, just
                         before move, if obj.move_to() has quiet=False
      announce_move_to(source_location)       - called in new location, just
@@ -133,14 +131,12 @@ class Object(ContribRPObject):
      at_object_receive(obj, source_location) - called when this object receives
                         another object
 
-     at_traverse(traversing_object, source_loc) - (exit-objects only)
-                              handles all moving across the exit, including
-                              calling the other exit hooks. Use super() to retain
-                              the default functionality.
-     at_after_traverse(traversing_object, source_location) - (exit-objects only)
-                              called just after a traversal has happened.
+     at_before_traverse(traversing_object)              - (exit-objects only)
+                            called just before an object traverses this object
+     at_after_traverse(traversing_object, source_location) -
+            (exit-objects only) called just after a traversal has happened.
      at_failed_traverse(traversing_object)      - (exit-objects only) called if
-                       traversal fails and property err_traverse is not defined.
+                    traversal fails and property err_traverse is not defined.
 
      at_msg_receive(self, msg, from_obj=None, **kwargs) - called when a message
                              (via self.msg()) is sent to this obj.
@@ -159,4 +155,7 @@ class Object(ContribRPObject):
                                  object speaks
 
      """
-    pass
+    def at_object_creation(self):
+        super(Object, self).at_object_creation()
+        self.db.pose = self.db.pose or self.db.default_pose
+
